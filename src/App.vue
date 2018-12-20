@@ -3,11 +3,12 @@
     <noscript>
       <strong>We're sorry but vue-css doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-  <div id="app">
-    <h1 v-colored="'red'">{{message}}</h1>
-     <component
+  <div id="app" v-colored:background="'green'">
+    <h1 v-colored:color.font="'red'">{{message}}</h1>
+    <global-comp></global-comp>
+     <!-- <component
     :is="currentTabComponent"
-    ></component>
+    ></component> -->
   </div>
    </body>
 </template>
@@ -16,9 +17,9 @@
 
 import './assets/css/dark.scss';
 const bg = require('./assets/themeName.js')
-import Dark from './components/Dark'
-import Arange from './components/Arange'
-import Light from './components/Light'
+// import Dark from './components/Dark'
+// import Arange from './components/Arange'
+// import Light from './components/Light'
 
 
 export default {
@@ -28,26 +29,26 @@ export default {
       message: 'Hello, world!'
   }
    },
-  components: {
-    'dark': Dark,
-    'arange': Arange,
-    'light': Light,
-    },
-  computed: {
-    currentTabComponent: function () {
-      return `${bg.color}`
-    }
-  },
-  created(){
+  // components: {
+  //   'dark': Dark,
+  //   'arange': Arange,
+  //   'light': Light,
+  //   },
+  // computed: {
+  //   currentTabComponent: function () {
+  //     return `${bg.color}`
+  //   }
+  // },
+  // created(){
 //  console.log(bg.color)
     // this.theme = "./assets/css/_vars_"+bg.color
   // console.log( theme())
-}
+// }
 }
 </script>
- <style lang="scss">
+//  <style lang="scss">
 
- @import './assets/css/dark.scss';
+//  @import './assets/css/dark.scss';
 
  
 //  body {
@@ -66,6 +67,6 @@ export default {
 //   h1 {
 //     color: $background-color1;
 //   }
-</style>
+// </style>
 
 

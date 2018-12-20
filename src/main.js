@@ -1,8 +1,22 @@
 import Vue from 'vue'
 import App from './App.vue'
 import ColorDirective from './assets/colored'
+import Dark from './components/Dark'
+import Arange from './components/Arange'
+import Light from './components/Light'
+const bg = require('./assets/themeName.js')
+
 
 Vue.directive('colored', ColorDirective)
+
+
+Vue.component('global-comp', bg.color)
+
+new Vue({
+  render: h => h(App),
+}).$mount('#app')
+
+
 // import './assets/css/main.scss'
 // import upperFirst from 'lodash/upperFirst'
 // import camelCase from 'lodash/camelCase'
@@ -45,8 +59,3 @@ Vue.directive('colored', ColorDirective)
 //   template: '<h1>Dark</h1>',
 //     style: `@import './assets/css/vars_${bg.color}.scss`
 // })
-
-
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
