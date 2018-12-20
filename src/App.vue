@@ -5,10 +5,10 @@
     </noscript>
   <div id="app" v-colored:background="'green'">
     <h1 v-colored:color.font="'red'">{{message}}</h1>
-    <global-comp></global-comp>
-     <!-- <component
+    <!-- <global-comp></global-comp> -->
+     <component
     :is="currentTabComponent"
-    ></component> -->
+    ></component>
   </div>
    </body>
 </template>
@@ -17,9 +17,9 @@
 
 import './assets/css/dark.scss';
 const bg = require('./assets/themeName.js')
-// import Dark from './components/Dark'
-// import Arange from './components/Arange'
-// import Light from './components/Light'
+import Dark from './components/Dark'
+import Arange from './components/Arange'
+import Light from './components/Light'
 
 
 export default {
@@ -29,16 +29,16 @@ export default {
       message: 'Hello, world!'
   }
    },
-  // components: {
-  //   'dark': Dark,
-  //   'arange': Arange,
-  //   'light': Light,
-  //   },
-  // computed: {
-  //   currentTabComponent: function () {
-  //     return `${bg.color}`
-  //   }
-  // },
+  components: {
+    'dark': Dark,
+    'arange': Arange,
+    'light': Light,
+    },
+  computed: {
+    currentTabComponent: function () {
+      return `${bg.color}`
+    }
+  }
   // created(){
 //  console.log(bg.color)
     // this.theme = "./assets/css/_vars_"+bg.color

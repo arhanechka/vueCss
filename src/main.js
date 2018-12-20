@@ -1,16 +1,17 @@
 import Vue from 'vue'
 import App from './App.vue'
 import ColorDirective from './assets/colored'
-import Dark from './components/Dark.vue'
-import Arange from './components/Arange'
-import Light from './components/Light'
-const bg = require('./assets/themeName.js')
+
+// import Dark from './components/Dark'
+// import Arange from './components/Arange'
+// import Light from './components/Light'
+// const bg = require('./assets/themeName.js')
 
 
 Vue.directive('colored', ColorDirective)
 
 
-Vue.component('global-comp', ${bg.color})
+// Vue.component('global-comp', bg.color)
 
 new Vue({
   render: h => h(App),
