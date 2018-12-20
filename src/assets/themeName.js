@@ -1,5 +1,5 @@
 module.exports = {
 
-    color: 'arange'
+    color: 'Orange'
 
 }

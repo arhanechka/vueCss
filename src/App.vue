@@ -3,7 +3,7 @@
     <noscript>
       <strong>We're sorry but vue-css doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-  <div id="app" v-colored:background="'green'">
+  <div id="app" v-colored:background="'blue'">
     <h1 v-colored:color.font="'red'">{{message}}</h1>
     <!-- <global-comp></global-comp> -->
      <component
@@ -17,9 +17,9 @@
 
 import './assets/css/dark.scss';
 const bg = require('./assets/themeName.js')
-import Dark from './components/Dark'
-import Arange from './components/Arange'
-import Light from './components/Light'
+// import Dark from './components/Dark'
+// import Arange from './components/Arange'
+// import Light from './components/Light'
 
 
 export default {
@@ -29,16 +29,14 @@ export default {
       message: 'Hello, world!'
   }
    },
-  components: {
-    'dark': Dark,
-    'arange': Arange,
-    'light': Light,
-    },
+  // components: {
+  //   'light': Light,
+  //   'dark': Dark,
+  //   'orange': Arange,
+  //   },
   computed: {
-    currentTabComponent: function () {
-      return `${bg.color}`
-    }
-  }
+    currentTabComponent: () => import(`./components/${bg.color}`)
+    },
   // created(){
 //  console.log(bg.color)
     // this.theme = "./assets/css/_vars_"+bg.color
