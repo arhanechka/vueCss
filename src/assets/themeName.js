@@ -1,5 +1,3 @@
 module.exports = {
-
-    color: 'arange'
-
+    color: 'Light'
 }

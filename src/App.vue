@@ -3,9 +3,15 @@
     <noscript>
       <strong>We're sorry but vue-css doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-  <div id="app" v-colored:background="'green'">
-    <h1 v-colored:color.font="'red'">{{message}}</h1>
-    <!-- <global-comp></global-comp> -->
+  <div id="app" v-colored:background="'orange'">
+    <h1 v-colored:color.font="'green'">{{message}}</h1>
+    <list-comp></list-comp>
+        <button-comp v-model = "switched"></button-comp>
+
+<hr>
+<div v-if="switched"> Enabled </div>
+<div v-if="!switched"> Disabled </div>
+
      <component
     :is="currentTabComponent"
     ></component>
@@ -17,33 +23,27 @@
 
 import './assets/css/dark.scss';
 const bg = require('./assets/themeName.js')
-import Dark from './components/Dark'
-import Arange from './components/Arange'
-import Light from './components/Light'
-
+import List from './components/List'
+import Button from './components/Buttons'
 
 export default {
   name: 'app',
    data() {
     return{
-      message: 'Hello, world!'
+      message: 'Hello, world!',
+      switched: false
+      // names: ['Ann', 'Vanna', 'Rosa'],
+      // searchItems: ''
   }
    },
-  components: {
-    'dark': Dark,
-    'arange': Arange,
-    'light': Light,
-    },
+   components: {
+     'listComp': List,
+     'buttonComp': Button
+   },
   computed: {
-    currentTabComponent: function () {
-      return `${bg.color}`
-    }
-  }
-  // created(){
-//  console.log(bg.color)
-    // this.theme = "./assets/css/_vars_"+bg.color
-  // console.log( theme())
-// }
+    currentTabComponent: () => import(`./components/${bg.color}`),
+    namesFiltered: () => this.names
+    },
 }
 </script>
 //  <style lang="scss">
